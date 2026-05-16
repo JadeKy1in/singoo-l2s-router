@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  singoo:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
+    environment:
+      - SINGOO_HOST=0.0.0.0
+    restart: unless-stopped

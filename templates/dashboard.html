@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Singoo L2S-Router</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; min-height:100vh; }
+.header { background: #1e293b; padding: 16px 24px; border-bottom: 1px solid #334155; display:flex; justify-content:space-between; align-items:center; }
+.header h1 { font-size:20px; color:#38bdf8; }
+.stats { display:flex; gap:24px; font-size:14px; }
+.card { background:#1e293b; border-radius:8px; margin:16px 24px; overflow:hidden; }
+table { width:100%; border-collapse:collapse; }
+th { text-align:left; padding:10px 16px; font-size:12px; color:#94a3b8; border-bottom:1px solid #334155; background:#0f172a; }
+td { padding:10px 16px; font-size:13px; border-bottom:1px solid #1e293b; }
+tr:hover { background:#334155; }
+.badge { padding:2px 8px; border-radius:12px; font-size:11px; font-weight:600; }
+.badge-lead { background:#166534; color:#4ade80; }
+.badge-support { background:#854d0e; color:#fbbf24; }
+.badge-spam { background:#7f1d1d; color:#fca5a5; }
+.badge-completed { background:#1e3a5f; color:#60a5fa; }
+.badge-escalated { background:#713f12; color:#fbbf24; }
+.badge-discarded { background:#3f3f46; color:#a1a1aa; }
+.badge-active { background:#14532d; color:#4ade80; }
+a { color:#38bdf8; text-decoration:none; }
+a:hover { text-decoration:underline; }
+.empty { text-align:center; padding:48px; color:#64748b; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Singoo L2S-Router</h1>
+  <div class="stats">
+    <span>Sessions: <strong>{{ total }}</strong></span>
+  </div>
+</div>
+<div class="card">
+<table>
+<thead><tr><th>ID</th><th>Title</th><th>Source</th><th>Intent</th><th>Status</th><th>Turns</th><th>Updated</th></tr></thead>
+<tbody>
+{% for t in threads %}
+<tr>
+  <td><a href="/view/{{ t.session_id }}">{{ t.session_id[:8] }}</a></td>
+  <td>{{ t.thread_title or '—' }}</td>
+  <td>{{ t.lead_source or '—' }}</td>
+  <td><span class="badge badge-{{ 'lead' if t.intent == 'Lead_Gen' else 'support' if t.intent == 'Support' else 'spam' }}">{{ t.intent }}</span></td>
+  <td><span class="badge badge-{{ t.status }}">{{ t.status }}</span></td>
+  <td>{{ t.turn_count }}</td>
+  <td>{{ t.updated_at[:19] if t.updated_at else '—' }}</td>
+</tr>
+{% endfor %}
+{% if not threads %}
+<tr><td colspan="7" class="empty">No sessions yet. POST to /thread to create one.</td></tr>
+{% endif %}
+</tbody>
+</table>
+</div>
+</body>
+</html>
