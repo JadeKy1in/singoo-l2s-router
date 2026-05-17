@@ -1,0 +1,66 @@
+{
+  "session_id": "af73b371-4298-4f72-b1cf-94c32755c3cd",
+  "lead_source": "WhatsApp",
+  "global_context": [
+    {
+      "role": "user",
+      "content": "I want to buy 100 solar inverters",
+      "timestamp": "2026-05-17T11:48:15.392889Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks for your inquiry! We specialize in new energy equipment. Could you share your target specifications and budget range?",
+      "timestamp": "2026-05-17T11:48:15.398341Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks for your inquiry! We specialize in new energy equipment. Could you share your target specifications and budget range?",
+      "timestamp": "2026-05-17T11:48:15.399225Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks for your inquiry! We specialize in new energy equipment. Could you share your target specifications and budget range?",
+      "timestamp": "2026-05-17T11:48:15.399985Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks for your inquiry! We specialize in new energy equipment. Could you share your target specifications and budget range?",
+      "timestamp": "2026-05-17T11:48:15.400878Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks for your inquiry! We specialize in new energy equipment. Could you share your target specifications and budget range?",
+      "timestamp": "2026-05-17T11:48:15.401614Z"
+    }
+  ],
+  "extracted_entities": {
+    "company_name": "Mock Energy Corp",
+    "contact_name": "John Mock",
+    "contact_email": "john@mockenergy.example.com",
+    "contact_phone": null,
+    "country": "Indonesia",
+    "purchase_intent": "high",
+    "product_interest": "Solar Inverter 50kW",
+    "lead_score": 75,
+    "score_justification": null,
+    "missing_info": [
+      "budget",
+      "timeline"
+    ],
+    "notes": null
+  },
+  "current_agent": "Data_Extractor_Agent",
+  "status": "completed",
+  "intent": "Lead_Gen",
+  "turn_count": 5,
+  "max_turns": 5,
+  "rag_context": null,
+  "created_at": "2026-05-17T11:48:15.392872Z",
+  "updated_at": "2026-05-17T11:48:15.401617Z",
+  "thread_title": "I want to buy 100 solar inverters",
+  "pending_human_input": false,
+  "conversation_complete": false,
+  "intent_set": true,
+  "detected_language": "en",
+  "lead_export_status": null
+}

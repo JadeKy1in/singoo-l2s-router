@@ -1,0 +1,31 @@
+{
+  "session_id": "f0843ca9-40df-4526-b08a-0055f195cf8c",
+  "lead_source": "Email",
+  "global_context": [
+    {
+      "role": "user",
+      "content": "My unit is broken, warranty claim",
+      "timestamp": "2026-05-17T11:48:15.477969Z"
+    },
+    {
+      "role": "assistant",
+      "content": "[Human Agent] Warranty approved, replacement shipping.",
+      "timestamp": "2026-05-17T11:48:15.486477Z"
+    }
+  ],
+  "extracted_entities": null,
+  "current_agent": "Human_Agent",
+  "status": "completed",
+  "intent": "Support",
+  "turn_count": 0,
+  "max_turns": 5,
+  "rag_context": null,
+  "created_at": "2026-05-17T11:48:15.477954Z",
+  "updated_at": "2026-05-17T11:48:15.486485Z",
+  "thread_title": "My unit is broken, warranty claim",
+  "pending_human_input": false,
+  "conversation_complete": false,
+  "intent_set": true,
+  "detected_language": "en",
+  "lead_export_status": null
+}

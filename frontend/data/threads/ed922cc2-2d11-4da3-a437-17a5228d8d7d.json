@@ -1,0 +1,66 @@
+{
+  "session_id": "ed922cc2-2d11-4da3-a437-17a5228d8d7d",
+  "lead_source": "WhatsApp",
+  "global_context": [
+    {
+      "role": "user",
+      "content": "Buy solar panels",
+      "timestamp": "2026-05-17T09:29:55.447417Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks for your inquiry! We specialize in new energy equipment. Could you share your target specifications and budget range?",
+      "timestamp": "2026-05-17T09:29:55.449272Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks for your inquiry! We specialize in new energy equipment. Could you share your target specifications and budget range?",
+      "timestamp": "2026-05-17T09:29:55.450018Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks for your inquiry! We specialize in new energy equipment. Could you share your target specifications and budget range?",
+      "timestamp": "2026-05-17T09:29:55.450656Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks for your inquiry! We specialize in new energy equipment. Could you share your target specifications and budget range?",
+      "timestamp": "2026-05-17T09:29:55.451262Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Thanks for your inquiry! We specialize in new energy equipment. Could you share your target specifications and budget range?",
+      "timestamp": "2026-05-17T09:29:55.451924Z"
+    }
+  ],
+  "extracted_entities": {
+    "company_name": "Mock Energy Corp",
+    "contact_name": "John Mock",
+    "contact_email": "john@mockenergy.example.com",
+    "contact_phone": null,
+    "country": "Indonesia",
+    "purchase_intent": "high",
+    "product_interest": "Solar Inverter 50kW",
+    "lead_score": 75,
+    "score_justification": null,
+    "missing_info": [
+      "budget",
+      "timeline"
+    ],
+    "notes": null
+  },
+  "current_agent": "Data_Extractor_Agent",
+  "status": "completed",
+  "intent": "Lead_Gen",
+  "turn_count": 5,
+  "max_turns": 5,
+  "rag_context": null,
+  "created_at": "2026-05-17T09:29:55.447402Z",
+  "updated_at": "2026-05-17T09:29:55.451927Z",
+  "thread_title": "Buy solar panels",
+  "pending_human_input": false,
+  "conversation_complete": false,
+  "intent_set": true,
+  "detected_language": "en",
+  "lead_export_status": null
+}
