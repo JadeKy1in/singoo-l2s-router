@@ -57,14 +57,9 @@ class SalesAgent(BaseAgent):
         rag_docs = await kb.query(last_user_msg, top_k=3)
         rag_context = "\n\n".join(rag_docs)
 
-        template = SALES_SYSTEM_PROMPT_ZH if state.detected_language == "zh" else SALES_SYSTEM_PROMPT
+        is_zh = state.detected_language == "zh"
+        template = SALES_SYSTEM_PROMPT_ZH if is_zh else SALES_SYSTEM_PROMPT
         system_content = template.format(rag_context=rag_context)
-        # Append conversation-complete signal instruction
-        system_content += (
-            "\n\nWhen the lead is fully qualified (BANT covered) or the customer "
-            "indicates they are done, end your reply with the token "
-            "[CONVERSATION_COMPLETE] on its own line."
-        )
 
         # Truncate context to last 10 messages to avoid context window overflow
         recent = state.global_context[-10:]
@@ -79,7 +74,7 @@ class SalesAgent(BaseAgent):
                 messages=messages,
                 model=settings.sales_model,
                 temperature=0.7,
-                max_tokens=512,
+                max_tokens=1024,
             )
         except Exception:
             reply = (

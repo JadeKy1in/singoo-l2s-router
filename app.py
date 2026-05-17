@@ -19,16 +19,12 @@ from api.handlers import (
 from api.models import CreateThreadRequest, ReplyRequest
 from auth import AuthMiddleware
 from config.settings import settings
-from dashboard import router as dashboard_router
 from graph.workflow import create_workflow
 
 app = FastAPI(title="Singoo L2S-Router", version="0.3.0")
 
 # Auth middleware (no-op if api_auth_token not set)
 app.add_middleware(AuthMiddleware)
-
-# Dashboard at /
-app.include_router(dashboard_router)
 
 workflow = create_workflow().compile()
 

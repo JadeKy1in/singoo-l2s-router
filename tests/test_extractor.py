@@ -46,8 +46,8 @@ class TestBANTCorrection:
             missing_info=["budget", "authority", "need", "timeline", "contact"],
         )
         corrected = DataExtractorAgent._apply_bant_correction(lead)
-        # 80 - 60 = 20
-        assert corrected.lead_score == 20
+        # 80 - (10+8+8+8+10) = 80 - 44 = 36
+        assert corrected.lead_score == 36
 
     def test_score_never_below_zero(self):
         lead = ExtractedLead(lead_score=10, missing_info=["budget", "contact"])

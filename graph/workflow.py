@@ -22,7 +22,6 @@ from langgraph.graph import END, StateGraph
 from agents.router import RouterAgent
 from agents.sales import SalesAgent
 from agents.extractor import DataExtractorAgent
-from config.settings import settings
 from schemas.enums import IntentType, AgentType, ThreadStatus
 from schemas.state import ThreadState
 
@@ -84,11 +83,9 @@ def route_after_sales(state: ThreadState) -> str:
         return "extractor_node"
     if state.turn_count >= state.max_turns:
         return "extractor_node"
-    # Mock mode: loop to completion (tests expect full pipeline in one call)
-    if settings.mock_mode:
-        return "sales_node"
-    # Real mode: stop after 1 turn for multi-turn interaction
-    return END
+    # Loop through sales agent until turn limit or conversation complete.
+    # Multi-turn continuation happens via POST /thread/{id}/reply.
+    return "sales_node"
 
 
 def route_after_escalate(state: ThreadState) -> str:

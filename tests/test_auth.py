@@ -75,8 +75,8 @@ class TestAuthEnabled:
         resp = client.get("/health")
         assert resp.status_code == 200
 
-    def test_dashboard_always_public(self):
+    def test_root_returns_404_when_no_dashboard(self):
         from app import app
         client = TestClient(app)
         resp = client.get("/")
-        assert resp.status_code == 200
+        assert resp.status_code == 404

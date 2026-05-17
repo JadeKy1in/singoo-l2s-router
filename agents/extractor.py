@@ -119,11 +119,11 @@ class DataExtractorAgent(BaseAgent):
         Budget: -15, Authority: -10, Need: -10, Timeline: -10, Contact: -15.
         """
         bant_weights = {
-            "budget": 15,
-            "authority": 10,
-            "need": 10,
-            "timeline": 10,
-            "contact": 15,
+            "budget": 10,
+            "authority": 8,
+            "need": 8,
+            "timeline": 8,
+            "contact": 10,
         }
         base = lead.lead_score or 50
         penalty = sum(
@@ -131,7 +131,7 @@ class DataExtractorAgent(BaseAgent):
             for field, weight in bant_weights.items()
             if field in lead.missing_info
         )
-        corrected = max(0, min(100, base - penalty))
+        corrected = max(10, min(100, base - penalty))
         lead.lead_score = corrected
         if not lead.score_justification:
             filled = len(bant_weights) - len(lead.missing_info)

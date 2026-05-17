@@ -68,7 +68,7 @@ class LLMClient:
             data = response.json()
         elapsed = time.monotonic() - t0
         msg = data["choices"][0]["message"]
-        content = msg.get("content", "") or msg.get("reasoning_content", "")
+        content = msg.get("content", "")
         logger.info(
             "LLM call model=%s tokens=%s latency=%.2fs content_len=%d",
             model_name,

@@ -40,6 +40,7 @@ class RouterAgent(BaseAgent):
     def _mock_classify(self, state: ThreadState, message: str) -> ThreadState:
         lowered = message.lower()
         lead_kw = ("price", "buy", "order", "quote", "bulk", "采购", "价格", "询价",
+                    "报价", "报价单", "需要", "逆变器", "充电桩", "太阳能",
                     "سعر", "شراء", "precio", "cotizacion", "prix", "devis")
         support_kw = ("help", "broken", "return", "refund", "售后", "退货", "维修",
                        "إصلاح", "reparar", "réparation")
