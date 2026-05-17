@@ -17,8 +17,10 @@ def _mock_httpx_response(json_body: dict):
 
 class TestLLMClient:
     def test_constructor_reads_settings(self):
+        from config.settings import settings
         client = LLMClient()
-        assert client._base_url == "https://api.deepseek.com/v1"
+        # Verify constructor delegates to Settings, not a hardcoded value
+        assert client._base_url == settings.llm_base_url.rstrip("/")
         assert "Authorization" in client._headers
 
     @pytest.mark.asyncio

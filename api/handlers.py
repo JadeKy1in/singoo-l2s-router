@@ -77,7 +77,7 @@ async def handle_human_reply(
     if state.status != ThreadStatus.ESCALATED:
         raise HTTPException(status_code=400, detail="Thread is not escalated")
 
-    state.add_message("assistant", f"[Human Agent] {user_message}")
+    state.add_message("assistant", user_message)
     state.pending_human_input = False
     state.status = ThreadStatus.COMPLETED
     state.current_agent = AgentType.HUMAN

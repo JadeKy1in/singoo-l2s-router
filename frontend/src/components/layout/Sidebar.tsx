@@ -2,27 +2,27 @@ import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import {
   LayoutDashboard,
-  MessageSquare,
-  Puzzle,
+  PlusCircle,
   BarChart3,
-  FileText,
-  Users,
   Wrench,
-  Sparkles,
   LogOut,
   ChevronLeft,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const navItems = [
+interface NavItem {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  labelCn: string;
+  href?: string;
+  soon?: boolean;
+}
+
+const navItems: NavItem[] = [
   { icon: LayoutDashboard, label: "Dashboard", labelCn: "仪表盘", href: "/" },
-  { icon: MessageSquare, label: "Conversations", labelCn: "会话", href: "/view" },
-  { icon: Puzzle, label: "Integrations", labelCn: "集成", href: "#" },
-  { icon: BarChart3, label: "Analytics", labelCn: "分析", href: "#" },
-  { icon: FileText, label: "Reports", labelCn: "报告", href: "#" },
-  { icon: Users, label: "Team Management", labelCn: "团队管理", href: "#" },
-  { icon: Wrench, label: "Settings", labelCn: "设置", href: "#" },
-  { icon: Sparkles, label: "AI Insights", labelCn: "AI 洞察", href: "#" },
+  { icon: PlusCircle, label: "New Session", labelCn: "新建会话", href: "/new" },
+  { icon: BarChart3, label: "Analytics", labelCn: "分析", soon: true },
+  { icon: Wrench, label: "Settings", labelCn: "设置", soon: true },
 ];
 
 export function Sidebar() {
@@ -62,14 +62,32 @@ export function Sidebar() {
       {/* Nav */}
       <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
         {navItems.map((item) => {
+          if (item.soon) {
+            return (
+              <span
+                key={item.label}
+                className="flex items-center w-full gap-3 px-3 py-2.5 rounded-lg text-left text-muted-foreground/50 cursor-not-allowed select-none"
+              >
+                <item.icon className="w-5 h-5 shrink-0" />
+                {!collapsed && (
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-sm font-medium truncate">
+                      {item.label} <span className="text-[10px]">(Soon)</span>
+                    </span>
+                    <span className="text-[10px]">{item.labelCn}</span>
+                  </div>
+                )}
+              </span>
+            );
+          }
           const isActive =
             item.href === "/"
               ? location.pathname === "/"
-              : item.href !== "#" && location.pathname.startsWith(item.href);
+              : !!item.href && location.pathname.startsWith(item.href);
           return (
             <Link
               key={item.label}
-              to={item.href}
+              to={item.href!}
               className={cn(
                 "flex items-center w-full gap-3 px-3 py-2.5 rounded-lg text-left transition-colors",
                 isActive

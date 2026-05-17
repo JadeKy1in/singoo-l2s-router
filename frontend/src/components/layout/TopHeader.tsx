@@ -1,17 +1,9 @@
-import { Search, Bell, Settings } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Bell, Settings } from "lucide-react";
 
 export function TopHeader() {
   return (
     <header className="flex items-center justify-between h-16 px-6 border-b border-border bg-card/50 shrink-0">
-      <div className="relative w-full max-w-md">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-        <Input
-          type="text"
-          placeholder="Search sessions..."
-          className="pl-10 bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground"
-        />
-      </div>
+      <div />
 
       <div className="flex items-center gap-3">
         <button className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">
