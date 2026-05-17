@@ -6,6 +6,18 @@ AI-powered social inquiry triage, RAG-based sales engagement, and structured CRM
 
 ---
 
+## Screenshots / 截图
+
+### Session List Dashboard / 会话列表仪表盘
+
+![Session List Dashboard](docs/screenshots/session-list.png)
+
+### Conversation View / 对话详情
+
+![Conversation View](docs/screenshots/conversation-view.png)
+
+---
+
 ## Quick Start / 快速开始
 
 ```bash
